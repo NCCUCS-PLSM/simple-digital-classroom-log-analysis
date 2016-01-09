@@ -1,0 +1,22 @@
+{
+  "name": "simple-digital-classroom-log-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "loadCSV.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NCCUCS-PLSM/simple-digital-classroom-log-analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NCCUCS-PLSM/simple-digital-classroom-log-analysis/issues"
+  },
+  "homepage": "https://github.com/NCCUCS-PLSM/simple-digital-classroom-log-analysis#readme",
+  "dependencies": {
+    "lazy.js": "^0.4.2"
+  }
+}
