@@ -25,7 +25,7 @@ var x = fs
 		var 時數 = 時數小時 * 60 + 時數分鐘;
 
 		return {
-			id: counter++,
+			sn: counter++,
 			電腦編號: 電腦編號,
 			ip: ip,
 			學生證號: 學生證號,
@@ -38,3 +38,6 @@ var x = fs
 
 fs.writeFileSync(path.resolve(__dirname, './log.json'), JSON.stringify(x, null, '    '));
 fs.writeFileSync(path.resolve(__dirname, './log.min.json'), JSON.stringify(x));
+fs.writeFileSync(path.resolve(__dirname, './html/data.js'), 'var rawdata = ' + JSON.stringify(x) + ';');
+
+module.exports = x;
