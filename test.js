@@ -141,3 +141,21 @@ var grouppedZoneSortedGrouppedForWeb = _(data)
 	.toObject();
 
 fs.writeFileSync('./grouppedZoneSortedGrouppedForWeb.json', JSON.stringify(grouppedZoneSortedGrouppedForWeb, null, '\t'));
+
+// 按照區域分組，內部再一次照日期分組，的人次
+// for web
+var grouppedZoneSortedGrouppedByEnrollmentsForWeb = _(data)
+	.sortBy(l => l.sn)
+	.groupBy(l => mapping[l.電腦編號[l.電腦編號.length - 1]] + l.電腦編號[l.電腦編號.length - 1])
+	.pairs()
+	.map(pair => [pair[0], _(pair[1])
+		.groupBy(p => p.開始時間.toJSON().split('T')[0])
+		.pairs()
+		.map(pp => [pp[0], _(pp[1]).size()])
+		.sortBy(pair => pair[0], false)
+		.toObject()
+	])
+	.sortBy(pair => pair[0], false)
+	.toObject();
+
+fs.writeFileSync('./grouppedZoneSortedGrouppedByEnrollmentsForWeb.json', JSON.stringify(grouppedZoneSortedGrouppedByEnrollmentsForWeb, null, '\t'));
